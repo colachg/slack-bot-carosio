@@ -1,5 +1,5 @@
 # slack-bot-carosio
-Datadog's bro.
+Datadog's bro, which helps you reduce the noise in your Slack channels. 
 
 ## Get started
 
