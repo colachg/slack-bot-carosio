@@ -1,9 +1,11 @@
 import './env';
 import {Client} from './client';
 import {MessageAttachment} from '@slack/web-api';
+// import { getParameter } from '@aws-lambda-powertools/parameters/ssm'
 
 // const CHANNEL_ID = 'C05VCLK7CSC'; //general
-const CHANNEL_ID = 'C05UPLQT5LJ'; //random
+// const CHANNEL_ID = 'C05UPLQT5LJ'; //random
+const CHANNEL_ID = 'C060N2Q1VQA'; //bot_dogdata
 
 const client = new Client(process.env.SLACK_USER_TOKEN);
 
@@ -48,55 +50,22 @@ const TRIGGERED_ATTACHMENT: MessageAttachment = {
   color: 'a30200',
   fallback:
     'Triggered: :rotating_light: `notifications.push.queue.error` has high error count.',
-  text: '[last 5m] notifications.push.queue.error count: 11.0 (threshold: 10.0)\n\nerrortype: \n\n@pagerduty-Datadog_Service\n@slack-bot_ops_critical\n\n`sum(last_5m):default_zero(sum:meetsmore.notifications.push.queue.error{env:production}.as_count()) &gt; 10`\n\nMetric value: 11.0',
+  text: '[last 5m] notifications.push.queue.error count: 83.0 (threshold: 10.0)\n\nerrortype: \n\n@pagerduty-Datadog_Service\n@slack-bot_ops_critical\n\n`sum(last_5m):default_zero(sum:meetsmore.notifications.push.queue.error{env:production}.as_count()) &gt; 10`\n\nMetric value: 83.0',
   title:
     'Triggered: :rotating_light: `notifications.push.queue.error` has high error count.',
   title_link:
-    'https://app.datadoghq.com/monitors/36937286?from_ts=1696377746000&to_ts=1696378946000&source=monitor_notif',
-  callback_id: 'datadog-event-message',
-  fields: [
-    {
-      value: '@slack-bot_ops_critical, @pagerduty-Datadog_Service',
-      title: 'Notified',
-      short: true,
-    },
-  ],
+    'https://app.datadoghq.com/monitors/36937286?from_ts=1697013686000&to_ts=1697014886000&source=monitor_notif',
   mrkdwn_in: ['fields', 'text'],
-  actions: [
-    {
-      id: '1',
-      name: 'mute-monitor',
-      text: 'Mute Monitor',
-      type: 'button',
-      value:
-        '{"event_id": 7249700803823690039, "monitor_id": 36937286, "org_id": 120591}',
-    },
-    {
-      id: '2',
-      name: 'declare-incident',
-      text: 'Declare Incident',
-      type: 'button',
-      value:
-        '{"event_id": 7249700803823690039, "monitor_id": 36937286, "org_id": 120591}',
-    },
-  ],
 };
 const RECOVERED_ATTACHMENT: MessageAttachment = {
   color: '2eb886',
   fallback:
     'Recovered: :rotating_light: `notifications.push.queue.error` has high error count.',
-  text: '[last 5m] notifications.push.queue.error count: 3.0 (threshold: 10.0)\n\nerrortype: \n\n@pagerduty-Datadog_Service\n@slack-bot_ops_critical\n\n`sum(last_5m):default_zero(sum:meetsmore.notifications.push.queue.error{env:production}.as_count()) &gt; 10`\n\nMetric value: 3.0',
+  text: '[last 5m] notifications.push.queue.error count: 2.0 (threshold: 10.0)\n\nerrortype: \n\n@pagerduty-Datadog_Service\n@slack-bot_ops_critical\n\n`sum(last_5m):default_zero(sum:meetsmore.notifications.push.queue.error{env:production}.as_count()) &gt; 10`\n\nMetric value: 2.0',
   title:
     'Recovered: :rotating_light: `notifications.push.queue.error` has high error count.',
   title_link:
-    'https://app.datadoghq.com/monitors/36937286?from_ts=1696378046000&to_ts=1696379246000&source=monitor_notif',
-  fields: [
-    {
-      value: '@slack-bot_ops_critical, @pagerduty-Datadog_Service',
-      title: 'Notified',
-      short: true,
-    },
-  ],
+    'https://app.datadoghq.com/monitors/36937286?from_ts=1696988246000&to_ts=1696989446000&source=monitor_notif',
   mrkdwn_in: ['fields', 'text'],
 };
 

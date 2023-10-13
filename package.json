@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@aws-lambda-powertools/parameters": "^1.14.0",
     "@slack/bolt": "^3.14.0",
     "@slack/web-api": "^6.9.0",
     "aws-lambda": "^1.0.7",
